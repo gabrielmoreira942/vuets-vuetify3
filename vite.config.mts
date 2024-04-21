@@ -10,6 +10,8 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 // Utilities
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
+import { dirResolver, DirResolverHelper } from "vite-auto-import-resolvers";
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,13 +19,26 @@ export default defineConfig({
     VueRouter({
       dts: 'src/typed-router.d.ts',
     }),
+    DirResolverHelper(),
     Layouts(),
     AutoImport({
       imports: [
         'vue',
+        '@vueuse/core',
+        '@vueuse/head',
         {
-          'vue-router/auto': ['useRoute', 'useRouter'],
+          from: 'vue-router/auto',
+          imports: ['useRoute', 'useRouter'],
+        },
+        {
+          from: '@vueuse/integrations/useAxios',
+          imports: [ 'useAxios' ]
         }
+      ],
+      
+      dirs: ['src/types', 'src/stores'], 
+      resolvers: [
+        dirResolver(),
       ],
       dts: 'src/auto-imports.d.ts',
       eslintrc: {

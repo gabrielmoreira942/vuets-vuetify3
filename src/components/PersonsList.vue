@@ -37,7 +37,7 @@ const props = defineProps<{
 //   },
 // ])
 
-let name = ref("gabriel");
+let name = ref<string>("gabs");
 
 const changeName = (newName: string) => (name.value = newName);
 

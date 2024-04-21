@@ -5,10 +5,12 @@
     <persons-list :persons="persons" v-model="age"></persons-list>
   </div>
 </template>
-
+<route lang="yaml">
+  name: Estudando
+</route>
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
-import { PersonInterface } from "../types/Person";
+import { PersonInterface } from '../types/Person';
 let persons = reactive<PersonInterface[]>([
   {
     id: 5,
