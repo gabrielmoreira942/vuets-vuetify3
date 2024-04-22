@@ -21,32 +21,36 @@ import { ref } from 'vue';
               <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
             </template>
             <v-list>
-              <v-list-item @click="toggleDialog" value="1">
+              <v-list-item @click="toggleDialog(i)" value="1">
                 <v-list-item-title>Editar</v-list-item-title>
               </v-list-item>
-              <v-list-item value="2">
-                <v-list-item-title @click="toggleDialog">Deletar</v-list-item-title>
+              <v-list-item @click="toggleDialog(i)" value="2">
+                <v-list-item-title>Deletar</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
         </template>
       </v-list-item>
     </v-list>
-    <DialogTodo :dialog="dialog"></DialogTodo>
+    <DialogTodo @dialogEmit="toggleDialog" @success="snackbar = $event" :task="listTask[indexSelected]"
+      :dialog="dialog">
+    </DialogTodo>
+    <Success :snackbar="snackbar"></Success>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import DialogTodo from './DialogTodo.vue';
-
-
 const props = defineProps({
   listTask: Array,
 })
+const indexSelected = ref<number>(0)
 const dialog = ref<boolean>(false)
-
-const toggleDialog = () => {
-  return dialog.value = !dialog.value
+const snackbar = ref<boolean>(false)
+const toggleDialog = (i: number) => {
+  dialog.value = !dialog.value
+  if (i != null && props.listTask[i] != null) {
+    indexSelected.value = i
+  }
 }
 </script>

@@ -16,6 +16,7 @@ declare module 'vue' {
     PersonsList: typeof import('./components/PersonsList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Success: typeof import('./components/alertMessages/Success.vue')['default']
     TodoList: typeof import('./components/todolist/TodoList.vue')['default']
   }
 }

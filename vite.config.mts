@@ -36,7 +36,7 @@ export default defineConfig({
         }
       ],
       
-      dirs: ['src/types', 'src/stores'], 
+      dirs: ['src/types', 'src/stores', 'src/components'], 
       resolvers: [
         dirResolver(),
       ],

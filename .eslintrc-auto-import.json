@@ -290,6 +290,9 @@
     "whenever": true,
     "useAxios": true,
     "useHead": true,
-    "useSeoMeta": true
+    "useSeoMeta": true,
+    "todolistModule": true,
+    "rules": true,
+    "required": true
   }
 }
