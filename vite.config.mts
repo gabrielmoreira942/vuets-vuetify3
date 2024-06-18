@@ -15,6 +15,7 @@ import { dirResolver, DirResolverHelper } from "vite-auto-import-resolvers";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/vuets-vuetify3/',
   plugins: [
     VueRouter({
       dts: 'src/typed-router.d.ts',
