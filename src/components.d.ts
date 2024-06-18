@@ -7,12 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AppFooter: typeof import('./components/AppFooter.vue')['default']
+    copy: typeof import('./components/todolist/DialogTodo copy.vue')['default']
     DialogTodo: typeof import('./components/todolist/DialogTodo.vue')['default']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
-    Home: typeof import('./components/Home.vue')['default']
+    DialogTodoDelete: typeof import('./components/todolist/DialogTodoDelete.vue')['default']
     ListTasks: typeof import('./components/todolist/ListTasks.vue')['default']
-    'ListTasks@tarefas': typeof import('./components/ListTasks@tarefas.vue')['default']
     PersonsList: typeof import('./components/PersonsList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
