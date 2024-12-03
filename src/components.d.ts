@@ -7,7 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./components/todolist/DialogTodo copy.vue')['default']
     DialogTodo: typeof import('./components/todolist/DialogTodo.vue')['default']
     DialogTodoDelete: typeof import('./components/todolist/DialogTodoDelete.vue')['default']
     ListTasks: typeof import('./components/todolist/ListTasks.vue')['default']
