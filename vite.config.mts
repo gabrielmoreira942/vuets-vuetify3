@@ -16,32 +16,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
-      manifest: {
-        "name": "Oinc Organize",
-        "short_name": "Oinc",
-        "start_url": "/",
-        "icons": [
-          {
-            "src": "/web-app-manifest-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable"
-          },
-          {
-            "src": "/web-app-manifest-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
-          }
-        ],
-        "theme_color": "#f49292",
-        "background_color": "#d6eece",
-        "display": "standalone"
-      }
-    }),
+    VitePWA({ registerType: 'autoUpdate' }),
     VueRouter({
       dts: 'src/typed-router.d.ts',
     }),
