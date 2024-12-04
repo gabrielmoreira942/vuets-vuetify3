@@ -11,11 +11,12 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import { dirResolver, DirResolverHelper } from "vite-auto-import-resolvers";
-
+import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    VitePWA({ registerType: 'autoUpdate' }),
     VueRouter({
       dts: 'src/typed-router.d.ts',
     }),
@@ -32,11 +33,11 @@ export default defineConfig({
         },
         {
           from: '@vueuse/integrations/useAxios',
-          imports: [ 'useAxios' ]
+          imports: ['useAxios']
         }
       ],
-      
-      dirs: ['src/types', 'src/stores', 'src/components'], 
+
+      dirs: ['src/types', 'src/stores', 'src/components'],
       resolvers: [
         dirResolver(),
       ],
@@ -61,7 +62,7 @@ export default defineConfig({
     }),
     Fonts({
       google: {
-        families: [ {
+        families: [{
           name: 'Roboto',
           styles: 'wght@100;300;400;500;700;900',
         }],
